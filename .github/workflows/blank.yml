@@ -1,6 +1,10 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+    - master
+    - release/*
 
 jobs:
   build:
@@ -8,10 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+    - uses: actions/checkout@v1      
+    - name: Test, build and deploy
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        echo Start test!
+        echo Finish test!
+        echo -------------
+        echo Start build!
+        echo Finish build!
+        echo -------------
+        echo Start deploy!
+        echo Finish deploy!
